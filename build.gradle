@@ -1,0 +1,121 @@
+
+//plugins {//有问题，不会用
+//	id 'java-gradle-plugin'
+//	id 'groovy'
+//	id 'org.springframework.boot'
+//}
+
+allprojects{
+	apply plugin: 'java'
+	apply plugin: 'groovy'
+	apply plugin: 'eclipse'
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'gradle-one-jar'
+	apply plugin: 'maven-publish'
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	version = '1.0'
+}
+
+publishing {
+	publications{
+		myPulish(MavenPublication){
+			from components.java
+		}
+	}
+	repositories{
+		maven{
+			name "xxxxx"
+			url ""
+		}
+	}
+}
+
+//configurations.all{
+//	//当版本依赖出现问题的时候，提示失败
+//	resolutionStrategy{
+//		failOnVersionConflict()
+//		//强制版本例子
+//		//force 'org.slf4j:slf4j-api:1.7.22'
+//	}
+//}
+
+buildscript {
+	repositories {
+		maven {
+			url "https://plugins.gradle.org/m2/"
+			url 'http://maven.aliyun.com/nexus/content/groups/public/'
+		}
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
+		classpath 'mysql:mysql-connector-java:5.1.6'
+		classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+	}
+}
+
+repositories {
+	maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+	mavenLocal()
+	mavenCentral()
+	jcenter()
+}
+
+configurations {
+	// configuration that holds jars to include in the jar
+	extraLibs
+}
+
+dependencies {
+//	api 'org.apache.commons:commons-math3:3.6.1'
+//	implementation 'com.google.guava:guava:22.0'
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile group: 'io.netty', name: 'netty-all', version: '4.0.4.Final'
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+	//compile 'org.springframework.data:spring-data-redis:2.0.1.RELEASE'
+	compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+	compile group: 'com.alibaba', name: 'fastjson', version: '1.2.40'
+
+	testImplementation 'junit:junit:4.12'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	configurations.compile.extendsFrom(configurations.extraLibs)
+	
+}
+
+jar {
+	baseName = 'fmtest'
+	version =  '0.1.0'
+	from {
+		configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}
+
+
+
+//task fatJar(type: Jar) {
+//	manifest {
+//		attributes 'Implementation-Title': 'Gradle Jar File Example',
+//			'Implementation-Version': version,
+//			'Main-Class': 'hello.Application'
+//	}
+//	baseName = project.name + '-all'
+//	println baseName
+//	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } 
+////		configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+//	}
+//	with jar
+//}
+//
+//task myjar(type: OneJar) {
+//	mainClass = 'hello.Application'
+//}
+
+//Closure callback = {println 'Doneffffffffffffffff'}
+//task anythingxx(){
+//	//def subdir = new File(project.buildDir, "subdir")
+//	File ff = new File("sdfds/sdf")
+//	ff.mkdirs()
+//	callback()    
+//	println 'Doneffffffffffffffff'
+//}
