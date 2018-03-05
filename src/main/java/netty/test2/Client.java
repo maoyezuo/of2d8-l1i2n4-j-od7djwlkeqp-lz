@@ -5,6 +5,7 @@ package netty.test2;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import message.MessageId;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,6 +13,8 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
+import com.alibaba.fastjson.JSONObject;
 
 import netty.ToString;
 
@@ -54,7 +57,7 @@ public class Client implements Runnable{
 		PrintStream out = new PrintStream(socket.getOutputStream());
 		boolean close = true;
 		while(close){
-			ToString.println(numc, num);
+//			ToString.println(numc, num);
 			if(num>=maxnum){//避免发送太早影响连接
 				sends(out);
 			}
@@ -66,7 +69,13 @@ public class Client implements Runnable{
 	}
 
 	private void sends(PrintStream out) throws IOException {
-		String s = "日日日日日日"+numc;
+		String s = "";
+		JSONObject json = new JSONObject();
+		json.put("msgid", MessageId.login );
+		json.put("msg", "日日日日日日");
+		json.put("numc", numc);
+		
+		s = json.toString();
 //		ToString.println(s);
 	    int total = 4 + 4 + s.getBytes().length;
 	    ByteBuf byteBuf = Unpooled.buffer(total);

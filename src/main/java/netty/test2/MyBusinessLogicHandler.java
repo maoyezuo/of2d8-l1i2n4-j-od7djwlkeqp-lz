@@ -3,6 +3,9 @@
  */
 package netty.test2;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.alibaba.fastjson.JSONObject;
 
 import ball.club.ClubImpl;
@@ -22,6 +25,7 @@ import user.login.Login;
  *
  */
 public class MyBusinessLogicHandler extends SimpleChannelInboundHandler<String>  {
+	private final static Logger logger = LoggerFactory.getLogger(MyBusinessLogicHandler.class);
 	private int a;
 	private User user;
 	private Team team;
@@ -29,9 +33,9 @@ public class MyBusinessLogicHandler extends SimpleChannelInboundHandler<String> 
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, String msg)throws Exception {
 		a++;
-		if(0 == a%30){
+//		if(0 == a%30){
 			ToString.println(msg, ctx.channel().remoteAddress(),ctx.pipeline().channel().hashCode());
-		}
+//		}
 		JSONObject json = JSONObject.parseObject(msg);
 		String msgid = json.getString("msgid");
 		MessageId messageId = MessageId.valueOf(msgid);

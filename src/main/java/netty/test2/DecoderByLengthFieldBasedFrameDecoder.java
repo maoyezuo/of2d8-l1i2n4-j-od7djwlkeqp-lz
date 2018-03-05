@@ -6,6 +6,9 @@ package netty.test2;
 import java.nio.ByteOrder;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.DecoderException;
@@ -13,6 +16,8 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import netty.ToString;
 
 public class DecoderByLengthFieldBasedFrameDecoder extends LengthFieldBasedFrameDecoder {  
+	private final static Logger logger = LoggerFactory.getLogger(DecoderByLengthFieldBasedFrameDecoder.class);
+	
     // 第一个参数为信息最大长度，超过这个长度回报异常，  
     // 第二参数为长度属性的起始（偏移）位，我们的协议中长度是0到第3个字节，所以这里写0，  
     // 第三个参数为“长度属性”的长度，我们是4个字节，所以写4，  
@@ -54,7 +59,7 @@ public class DecoderByLengthFieldBasedFrameDecoder extends LengthFieldBasedFrame
         int index =  in.readerIndex();
         ByteBuf frame = in.slice(index, frameLength2).retain();//取出自己定义的packet包返回给ChannelRead
         String name = new String(frame.readBytes(frameLength2).array(), "UTF-8");
-        ToString.println(name);
+//        ToString.println(name);
         in.readerIndex(frameLength);//这一步一定要有，不然其实bytebuf的readerIndex没有变，netty会一直从这里开始读取，将readerIndex移动就相当于把前面的数据处理过了废弃掉了。
        
         return name;

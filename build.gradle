@@ -52,6 +52,7 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
 		classpath 'mysql:mysql-connector-java:5.1.6'
 		classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+		
 	}
 }
 
@@ -80,7 +81,6 @@ dependencies {
 	testImplementation 'junit:junit:4.12'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	configurations.compile.extendsFrom(configurations.extraLibs)
-	
 }
 
 jar {

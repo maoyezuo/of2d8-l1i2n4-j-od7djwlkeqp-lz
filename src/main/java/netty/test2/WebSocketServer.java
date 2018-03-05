@@ -1,9 +1,5 @@
-/**
- * 
- */
 package netty.test2;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
 import init.Initialize;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -13,16 +9,16 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.http.HttpObjectAggregator;
+import io.netty.handler.codec.http.HttpRequestDecoder;
+import io.netty.handler.codec.http.HttpResponseEncoder;
+import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import netty.ToString;
 
-/**
- * @author wangyu
- *
- */
-public class Server {
-	private int port;
+public class WebSocketServer {
+private int port;
     
-    public Server(int port) {
+    public WebSocketServer(int port) {
         this.port = port;
     }
     public static EventLoopGroup bossGroup = new NioEventLoopGroup(); 
@@ -39,8 +35,18 @@ public class Server {
                  public void initChannel(SocketChannel ch) throws Exception {
 //                     ch.pipeline().addLast(new Decoder2(1024,0,4));
 //                	 ch.pipeline().addLast(workerGroup,"codec", new WebSocketServerProtocolHandler("ws"));
-                	 ch.pipeline().addLast(workerGroup,"codec",new DecoderByLengthFieldBasedFrameDecoder(1024*1024, 4, 4, 4, 8)); 
-                	 ch.pipeline().addLast(workerGroup,"handle", new MyBusinessLogicHandler());
+                	 
+                	 
+                	 
+                	 ch.pipeline().addLast("decoder", new HttpRequestDecoder());   //用于解析http报文的handler  
+                     ch.pipeline().addLast("aggregator", new HttpObjectAggregator(65536));   //用于将解析出来的数据封装成http对象，httprequest什么的  
+                     ch.pipeline().addLast("encoder", new HttpResponseEncoder());   //用于将response编码成httpresponse报文发送  
+                     ch.pipeline().addLast("handshake", new WebSocketServerProtocolHandler("", "", true));  //websocket的handler部分定义的，它会自己处理握手等操作  
+                     ch.pipeline().addLast(new WebSocketHandler()); 
+                     
+                     
+//                	 ch.pipeline().addLast(workerGroup,"codec",new DecoderByLengthFieldBasedFrameDecoder(1024*1024, 4, 4, 4, 8)); 
+//                	 ch.pipeline().addLast(workerGroup,"handle", new MyBusinessLogicHandler());
                  }
              })
              .option(ChannelOption.SO_BACKLOG, 128)          // (5)
@@ -79,7 +85,7 @@ public class Server {
 			@Override
 			public void run() {
 				 try {
-					new Server(port).run();
+					new WebSocketServer(port).run();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -104,5 +110,4 @@ public class Server {
 //        }
         
     }
-	
 }
