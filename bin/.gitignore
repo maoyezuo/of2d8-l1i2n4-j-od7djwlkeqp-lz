@@ -1,12 +1,6 @@
+/applicationContext.xml
+/db.properties
+/application/
+/sql/
+/dao/
 /ball/
-/hello/
-/httpnothing/
-/init/
-/message/
-/netty/
-/redis/
-/short_message_server/
-/template/
-/time/
-/tools/
-/user/

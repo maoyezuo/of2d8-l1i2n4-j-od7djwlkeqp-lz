@@ -11,7 +11,7 @@ import user.info.User;
 public class Login {
 	private static Map<String, User> uuidMap = new HashMap<String, User>();
 //	private static ConcurrentSkipListSet<String> nicknameMap = new ConcurrentSkipListSet<String>();//nickname不需要唯一，取消
-	private static AtomicLong atomicLong;
+	private static AtomicLong atomicLong = new AtomicLong();
 	
 	public int login(JSONObject json) {
 		String uuid = json.getString("uuid");

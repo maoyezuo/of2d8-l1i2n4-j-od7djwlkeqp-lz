@@ -1,11 +1,14 @@
 package hello;
 
+import org.apache.ibatis.datasource.DataSourceException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import init.Initialize;
+import netty.test2.Client;
+import netty.test2.Server;
 
 @SpringBootApplication
 @EnableScheduling
@@ -29,8 +32,9 @@ public class Application {
 
     public static void main(String[] args) {
     	try {
-			Initialize.run();
 			ApplicationContext ctx = SpringApplication.run(Application.class, args);
+			Initialize.run();
+    		new Server(Client.port).run();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

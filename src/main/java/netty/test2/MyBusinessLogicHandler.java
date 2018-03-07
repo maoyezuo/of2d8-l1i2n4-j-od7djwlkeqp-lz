@@ -36,6 +36,7 @@ public class MyBusinessLogicHandler extends SimpleChannelInboundHandler<String> 
 //		if(0 == a%30){
 			ToString.println(msg, ctx.channel().remoteAddress(),ctx.pipeline().channel().hashCode());
 //		}
+			
 		JSONObject json = JSONObject.parseObject(msg);
 		String msgid = json.getString("msgid");
 		MessageId messageId = MessageId.valueOf(msgid);
@@ -45,6 +46,7 @@ public class MyBusinessLogicHandler extends SimpleChannelInboundHandler<String> 
 			break;
 		case register:
 			Login.getInstance().register(json);
+			ctx.write(3);
 			break;
 		case createClub:
 			ClubImpl.getInstance().creatClub(json);

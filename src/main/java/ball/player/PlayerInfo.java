@@ -2,12 +2,15 @@ package ball.player;
 
 public class PlayerInfo {
 	private long id;
+	private String name="";
 	private int pass;
 	private int trapping;
 	private int shoot;
 	private int sense;
+	private int price;
 	private PositionStadium position;
 	private long clubId;
+	private long teamId;
 	
 	public PlayerInfo() {
 	}
@@ -65,6 +68,24 @@ public class PlayerInfo {
 	}
 	public void setPosition(PositionStadium position) {
 		this.position = position;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public long getTeamId() {
+		return teamId;
+	}
+	public void setTeamId(long teamId) {
+		this.teamId = teamId;
 	}
 	
 }

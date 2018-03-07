@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/task 
+	http://www.springframework.org/schema/task/spring-task.xsd
+	">
+	
+	
+    <!-- 定时任务相关配置 -->
+	<task:executor id="executor" pool-size="10" queue-capacity="128"/>
+	<task:scheduler id="scheduler" pool-size="10"/>
+	<task:annotation-driven executor="executor" scheduler="scheduler" proxy-target-class="true"/>
+	
+	<!-- 包的扫描路径配置 -->
+	<context:component-scan base-package="ball.player">
+    <context:exclude-filter type="regex" expression=".common.*" />
+    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	
+	
+	<!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	<!-- 配置druid数据源 -->  
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method='init' destroy-method="close">  
+	    <property name="driverClassName" value="${jdbc.driver}" />  
+	    <property name="url" value="${jdbc.url}" />  
+	    <property name="username" value="${jdbc.username}" />  
+	    <property name="password" value="${jdbc.password}" />  
+	    <property name="minIdle" value="${jdbc.minIdle}" />        <!-- 队列中的最小等待数 -->  
+	    <property name="maxWait" value="${jdbc.maxWait}" />        <!-- 最长等待时间，单位毫秒 -->  
+	    <property name="maxActive" value="${jdbc.maxActive}" />    <!-- 最大活跃数 -->  
+	    <property name="initialSize" value="${jdbc.initialSize}" /><!--    初始大小 -->  
+	</bean>  
+	<!-- 整合Sql会话工厂归spring管理 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 指定会话工厂使用的数据源 -->
+		<property name="dataSource" ref="dataSource"/>
+		<!-- 指定mybatis核心配置文件 -->
+		<!-- <property name="configLocation" value="classpath:SqlMapConfig.xml"/> -->
+		<property name="mapperLocations" value="dao.*Mapper.xml"></property>
+	</bean>
+	<!-- 使用包扫描的方式批量引入Mapper	扫描后引用的时候可以使用类名,首字母小写. -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- <property name="basePackage" value="com.cloudnet.mapper"/> -->
+		<property name="basePackage" value="dao"></property>
+	</bean>
+	
+	
+	
+</beans>

@@ -3,7 +3,6 @@
  */
 package netty.test2;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
 import init.Initialize;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -54,6 +53,8 @@ public class Server {
 //            f.addListener(genericFutureListener);
 //            genericFutureListener.operationComplete(future);
             
+            System.out.println("---- [netty start]");
+            
             // Wait until the server socket is closed.
             // In this example, this does not happen, but you can do that to gracefully
             // shut down your server.
@@ -72,7 +73,7 @@ public class Server {
         if (args.length > 0) {
             port = Integer.parseInt(args[0]);
         } else {
-            port = 8080;
+            port = Client.port;
         }
         new Thread(new Runnable() {
 			

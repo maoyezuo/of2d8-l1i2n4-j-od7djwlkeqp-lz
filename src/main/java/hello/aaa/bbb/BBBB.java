@@ -11,7 +11,7 @@ import netty.ToString;
 public class BBBB {
   @Value(value = "234") 
   public int aa = 1999;
-  @Scheduled(fixedRate = 1000)
+  @Scheduled(fixedRate = 2000)
   public void myTest(){  
 	  ToString.println("进入测试");
   }

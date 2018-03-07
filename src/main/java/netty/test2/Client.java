@@ -23,7 +23,7 @@ import netty.ToString;
  *
  */
 public class Client implements Runnable{
-	public static final int port = 8080;
+	public static final int port = 18080;
 	public static final String host = "192.168.21.51";
 	public static int num = 0;
 	public static int maxnum = 1;
