@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.TTransferMapper">
+  <resultMap id="BaseResultMap" type="dao.pojo.TTransfer">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="buyer_id" jdbcType="VARCHAR" property="buyerId" />
+    <result column="price" jdbcType="INTEGER" property="price" />
+    <result column="seller_id" jdbcType="VARCHAR" property="sellerId" />
+    <result column="buyer_name" jdbcType="VARCHAR" property="buyerName" />
+    <result column="seller_name" jdbcType="VARCHAR" property="sellerName" />
+    <result column="player_id" jdbcType="BIGINT" property="playerId" />
+    <result column="player_name" jdbcType="VARCHAR" property="playerName" />
+    <result column="old_club_id" jdbcType="BIGINT" property="oldClubId" />
+    <result column="new_club_id" jdbcType="BIGINT" property="newClubId" />
+    <result column="old_club_name" jdbcType="VARCHAR" property="oldClubName" />
+    <result column="new_club_name" jdbcType="VARCHAR" property="newClubName" />
+    <result column="createtime" jdbcType="BIGINT" property="createtime" />
+    <result column="lasttime" jdbcType="BIGINT" property="lasttime" />
+    <result column="head_ico" jdbcType="INTEGER" property="headIco" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, buyer_id, price, seller_id, buyer_name, seller_name, player_id, player_name, 
+    old_club_id, new_club_id, old_club_name, new_club_name, createtime, lasttime, head_ico
+  </sql>
+  <select id="selectByExample" parameterType="dao.pojo.TTransferExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_transfer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_transfer
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_transfer
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="dao.pojo.TTransferExample">
+    delete from t_transfer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="dao.pojo.TTransfer">
+    insert into t_transfer (id, buyer_id, price, 
+      seller_id, buyer_name, seller_name, 
+      player_id, player_name, old_club_id, 
+      new_club_id, old_club_name, new_club_name, 
+      createtime, lasttime, head_ico
+      )
+    values (#{id,jdbcType=BIGINT}, #{buyerId,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER}, 
+      #{sellerId,jdbcType=VARCHAR}, #{buyerName,jdbcType=VARCHAR}, #{sellerName,jdbcType=VARCHAR}, 
+      #{playerId,jdbcType=BIGINT}, #{playerName,jdbcType=VARCHAR}, #{oldClubId,jdbcType=BIGINT}, 
+      #{newClubId,jdbcType=BIGINT}, #{oldClubName,jdbcType=VARCHAR}, #{newClubName,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=BIGINT}, #{lasttime,jdbcType=BIGINT}, #{headIco,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="dao.pojo.TTransfer">
+    insert into t_transfer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="buyerId != null">
+        buyer_id,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="sellerId != null">
+        seller_id,
+      </if>
+      <if test="buyerName != null">
+        buyer_name,
+      </if>
+      <if test="sellerName != null">
+        seller_name,
+      </if>
+      <if test="playerId != null">
+        player_id,
+      </if>
+      <if test="playerName != null">
+        player_name,
+      </if>
+      <if test="oldClubId != null">
+        old_club_id,
+      </if>
+      <if test="newClubId != null">
+        new_club_id,
+      </if>
+      <if test="oldClubName != null">
+        old_club_name,
+      </if>
+      <if test="newClubName != null">
+        new_club_name,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="lasttime != null">
+        lasttime,
+      </if>
+      <if test="headIco != null">
+        head_ico,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="buyerId != null">
+        #{buyerId,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="sellerId != null">
+        #{sellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null">
+        #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null">
+        #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="playerId != null">
+        #{playerId,jdbcType=BIGINT},
+      </if>
+      <if test="playerName != null">
+        #{playerName,jdbcType=VARCHAR},
+      </if>
+      <if test="oldClubId != null">
+        #{oldClubId,jdbcType=BIGINT},
+      </if>
+      <if test="newClubId != null">
+        #{newClubId,jdbcType=BIGINT},
+      </if>
+      <if test="oldClubName != null">
+        #{oldClubName,jdbcType=VARCHAR},
+      </if>
+      <if test="newClubName != null">
+        #{newClubName,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="lasttime != null">
+        #{lasttime,jdbcType=BIGINT},
+      </if>
+      <if test="headIco != null">
+        #{headIco,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="dao.pojo.TTransferExample" resultType="java.lang.Long">
+    select count(*) from t_transfer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_transfer
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.buyerId != null">
+        buyer_id = #{record.buyerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellerId != null">
+        seller_id = #{record.sellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buyerName != null">
+        buyer_name = #{record.buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellerName != null">
+        seller_name = #{record.sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.playerId != null">
+        player_id = #{record.playerId,jdbcType=BIGINT},
+      </if>
+      <if test="record.playerName != null">
+        player_name = #{record.playerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oldClubId != null">
+        old_club_id = #{record.oldClubId,jdbcType=BIGINT},
+      </if>
+      <if test="record.newClubId != null">
+        new_club_id = #{record.newClubId,jdbcType=BIGINT},
+      </if>
+      <if test="record.oldClubName != null">
+        old_club_name = #{record.oldClubName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newClubName != null">
+        new_club_name = #{record.newClubName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=BIGINT},
+      </if>
+      <if test="record.lasttime != null">
+        lasttime = #{record.lasttime,jdbcType=BIGINT},
+      </if>
+      <if test="record.headIco != null">
+        head_ico = #{record.headIco,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_transfer
+    set id = #{record.id,jdbcType=BIGINT},
+      buyer_id = #{record.buyerId,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=INTEGER},
+      seller_id = #{record.sellerId,jdbcType=VARCHAR},
+      buyer_name = #{record.buyerName,jdbcType=VARCHAR},
+      seller_name = #{record.sellerName,jdbcType=VARCHAR},
+      player_id = #{record.playerId,jdbcType=BIGINT},
+      player_name = #{record.playerName,jdbcType=VARCHAR},
+      old_club_id = #{record.oldClubId,jdbcType=BIGINT},
+      new_club_id = #{record.newClubId,jdbcType=BIGINT},
+      old_club_name = #{record.oldClubName,jdbcType=VARCHAR},
+      new_club_name = #{record.newClubName,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=BIGINT},
+      lasttime = #{record.lasttime,jdbcType=BIGINT},
+      head_ico = #{record.headIco,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="dao.pojo.TTransfer">
+    update t_transfer
+    <set>
+      <if test="buyerId != null">
+        buyer_id = #{buyerId,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="sellerId != null">
+        seller_id = #{sellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null">
+        buyer_name = #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null">
+        seller_name = #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="playerId != null">
+        player_id = #{playerId,jdbcType=BIGINT},
+      </if>
+      <if test="playerName != null">
+        player_name = #{playerName,jdbcType=VARCHAR},
+      </if>
+      <if test="oldClubId != null">
+        old_club_id = #{oldClubId,jdbcType=BIGINT},
+      </if>
+      <if test="newClubId != null">
+        new_club_id = #{newClubId,jdbcType=BIGINT},
+      </if>
+      <if test="oldClubName != null">
+        old_club_name = #{oldClubName,jdbcType=VARCHAR},
+      </if>
+      <if test="newClubName != null">
+        new_club_name = #{newClubName,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="lasttime != null">
+        lasttime = #{lasttime,jdbcType=BIGINT},
+      </if>
+      <if test="headIco != null">
+        head_ico = #{headIco,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="dao.pojo.TTransfer">
+    update t_transfer
+    set buyer_id = #{buyerId,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      seller_id = #{sellerId,jdbcType=VARCHAR},
+      buyer_name = #{buyerName,jdbcType=VARCHAR},
+      seller_name = #{sellerName,jdbcType=VARCHAR},
+      player_id = #{playerId,jdbcType=BIGINT},
+      player_name = #{playerName,jdbcType=VARCHAR},
+      old_club_id = #{oldClubId,jdbcType=BIGINT},
+      new_club_id = #{newClubId,jdbcType=BIGINT},
+      old_club_name = #{oldClubName,jdbcType=VARCHAR},
+      new_club_name = #{newClubName,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=BIGINT},
+      lasttime = #{lasttime,jdbcType=BIGINT},
+      head_ico = #{headIco,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -473,6 +473,186 @@ public class TBallClubExample {
             addCriterion("league not between", value1, value2, "league");
             return (Criteria) this;
         }
+
+        public Criteria andLevelteam0IsNull() {
+            addCriterion("levelTeam0 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0IsNotNull() {
+            addCriterion("levelTeam0 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0EqualTo(Boolean value) {
+            addCriterion("levelTeam0 =", value, "levelteam0");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0NotEqualTo(Boolean value) {
+            addCriterion("levelTeam0 <>", value, "levelteam0");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0GreaterThan(Boolean value) {
+            addCriterion("levelTeam0 >", value, "levelteam0");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0GreaterThanOrEqualTo(Boolean value) {
+            addCriterion("levelTeam0 >=", value, "levelteam0");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0LessThan(Boolean value) {
+            addCriterion("levelTeam0 <", value, "levelteam0");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0LessThanOrEqualTo(Boolean value) {
+            addCriterion("levelTeam0 <=", value, "levelteam0");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0In(List<Boolean> values) {
+            addCriterion("levelTeam0 in", values, "levelteam0");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0NotIn(List<Boolean> values) {
+            addCriterion("levelTeam0 not in", values, "levelteam0");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0Between(Boolean value1, Boolean value2) {
+            addCriterion("levelTeam0 between", value1, value2, "levelteam0");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam0NotBetween(Boolean value1, Boolean value2) {
+            addCriterion("levelTeam0 not between", value1, value2, "levelteam0");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21IsNull() {
+            addCriterion("levelTeam21 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21IsNotNull() {
+            addCriterion("levelTeam21 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21EqualTo(Boolean value) {
+            addCriterion("levelTeam21 =", value, "levelteam21");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21NotEqualTo(Boolean value) {
+            addCriterion("levelTeam21 <>", value, "levelteam21");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21GreaterThan(Boolean value) {
+            addCriterion("levelTeam21 >", value, "levelteam21");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21GreaterThanOrEqualTo(Boolean value) {
+            addCriterion("levelTeam21 >=", value, "levelteam21");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21LessThan(Boolean value) {
+            addCriterion("levelTeam21 <", value, "levelteam21");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21LessThanOrEqualTo(Boolean value) {
+            addCriterion("levelTeam21 <=", value, "levelteam21");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21In(List<Boolean> values) {
+            addCriterion("levelTeam21 in", values, "levelteam21");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21NotIn(List<Boolean> values) {
+            addCriterion("levelTeam21 not in", values, "levelteam21");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21Between(Boolean value1, Boolean value2) {
+            addCriterion("levelTeam21 between", value1, value2, "levelteam21");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam21NotBetween(Boolean value1, Boolean value2) {
+            addCriterion("levelTeam21 not between", value1, value2, "levelteam21");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18IsNull() {
+            addCriterion("levelTeam18 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18IsNotNull() {
+            addCriterion("levelTeam18 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18EqualTo(Boolean value) {
+            addCriterion("levelTeam18 =", value, "levelteam18");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18NotEqualTo(Boolean value) {
+            addCriterion("levelTeam18 <>", value, "levelteam18");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18GreaterThan(Boolean value) {
+            addCriterion("levelTeam18 >", value, "levelteam18");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18GreaterThanOrEqualTo(Boolean value) {
+            addCriterion("levelTeam18 >=", value, "levelteam18");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18LessThan(Boolean value) {
+            addCriterion("levelTeam18 <", value, "levelteam18");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18LessThanOrEqualTo(Boolean value) {
+            addCriterion("levelTeam18 <=", value, "levelteam18");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18In(List<Boolean> values) {
+            addCriterion("levelTeam18 in", values, "levelteam18");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18NotIn(List<Boolean> values) {
+            addCriterion("levelTeam18 not in", values, "levelteam18");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18Between(Boolean value1, Boolean value2) {
+            addCriterion("levelTeam18 between", value1, value2, "levelteam18");
+            return (Criteria) this;
+        }
+
+        public Criteria andLevelteam18NotBetween(Boolean value1, Boolean value2) {
+            addCriterion("levelTeam18 not between", value1, value2, "levelteam18");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -38,8 +38,19 @@ CREATE TABLE `t_ball_club`(
   `reputation` INT(6) NOT NULL COMMENT '声望',
   `nation` INT(11) NOT NULL COMMENT '国家',
   `league` INT(11) NOT NULL COMMENT '联赛',
+  `levelTeam0` TINYINT(1) NOT NULL COMMENT '一线队 是否组建',
+  `levelTeam21` TINYINT(1) NOT NULL COMMENT 'U21队 是否组建',
+  `levelTeam18` TINYINT(1) NOT NULL COMMENT 'U18队 是否组建',
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '球员俱乐部';
+
+
+DROP TABLE IF EXISTS `t_ball_team`;
+CREATE TABLE `t_ball_team`(
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `level_type` INT(4) NOT NULL COMMENT 'U23 U21 U18',
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '球队';
 
 
 DROP TABLE IF EXISTS `t_ball_player`;
@@ -47,6 +58,8 @@ CREATE TABLE `t_ball_player` (
   `id` BIGINT(13) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `price` INT(11) NOT NULL COMMENT '价格',
+  `age` INT(4) NOT NULL COMMENT '年龄',
+  `sex` INT(4) NOT NULL COMMENT '性别',
   `pass` INT(4) NOT NULL COMMENT '传球',
   `trapping` INT(4) NOT NULL COMMENT '拦截',
   `shoot` INT(4) NOT NULL COMMENT '神门',
@@ -54,5 +67,6 @@ CREATE TABLE `t_ball_player` (
   `position` INT(4) NOT NULL COMMENT '位置',
   `club_id` BIGINT(13) NOT NULL COMMENT '俱乐部id',
   `team_id` BIGINT(13) NOT NULL COMMENT '队伍id',
+  `nation_id` INT(11) NOT NULL COMMENT '国家',
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

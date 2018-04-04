@@ -99,6 +99,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="dao.pojo.TBallLeague" >
+  	<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into t_ball_league (id, name, maxTeamNum, 
       reputation)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{maxteamnum,jdbcType=INTEGER}, 

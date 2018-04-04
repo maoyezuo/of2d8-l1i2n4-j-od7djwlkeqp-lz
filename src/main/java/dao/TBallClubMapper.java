@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface TBallClubMapper {
-    int countByExample(TBallClubExample example);
+    long countByExample(TBallClubExample example);
 
     int deleteByExample(TBallClubExample example);
 

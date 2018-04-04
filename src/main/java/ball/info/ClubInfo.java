@@ -20,11 +20,12 @@ public class ClubInfo implements Serializable{
 	private Team team0;
 	private Team team21;
 	private Team team18;
-	private boolean levelTeam0;
-	private boolean levelTeam21;
-	private boolean levelTeam18;
+	private boolean levelTeam0;//一线队 是否组建
+	private boolean levelTeam21;//U21队
+	private boolean levelTeam18;//U18队
 	private int nation;
 	private int league;
+	private int reputation;
 	private Map<Long, List<AgainstInfo>> againstListByClubMap;
 	
 	public ClubInfo() {
@@ -121,6 +122,14 @@ public class ClubInfo implements Serializable{
 
 	public void setAgainstListByClubMap(Map<Long, List<AgainstInfo>> againstListByClubMap) {
 		this.againstListByClubMap = againstListByClubMap;
+	}
+
+	public int getReputation() {
+		return reputation;
+	}
+
+	public void setReputation(int reputation) {
+		this.reputation = reputation;
 	}
 
 	public ClubInfo deepClone() throws IOException, OptionalDataException, ClassNotFoundException {

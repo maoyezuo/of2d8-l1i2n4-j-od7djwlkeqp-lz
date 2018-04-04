@@ -553,6 +553,76 @@ public class TUserExample {
             addCriterion("is_login not between", value1, value2, "isLogin");
             return (Criteria) this;
         }
+
+        public Criteria andIdnameIsNull() {
+            addCriterion("idname is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameIsNotNull() {
+            addCriterion("idname is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameEqualTo(String value) {
+            addCriterion("idname =", value, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameNotEqualTo(String value) {
+            addCriterion("idname <>", value, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameGreaterThan(String value) {
+            addCriterion("idname >", value, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameGreaterThanOrEqualTo(String value) {
+            addCriterion("idname >=", value, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameLessThan(String value) {
+            addCriterion("idname <", value, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameLessThanOrEqualTo(String value) {
+            addCriterion("idname <=", value, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameLike(String value) {
+            addCriterion("idname like", value, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameNotLike(String value) {
+            addCriterion("idname not like", value, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameIn(List<String> values) {
+            addCriterion("idname in", values, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameNotIn(List<String> values) {
+            addCriterion("idname not in", values, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameBetween(String value1, String value2) {
+            addCriterion("idname between", value1, value2, "idname");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdnameNotBetween(String value1, String value2) {
+            addCriterion("idname not between", value1, value2, "idname");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

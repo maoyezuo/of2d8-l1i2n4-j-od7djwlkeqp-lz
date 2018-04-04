@@ -294,6 +294,126 @@ public class TBallPlayerExample {
             return (Criteria) this;
         }
 
+        public Criteria andAgeIsNull() {
+            addCriterion("age is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeIsNotNull() {
+            addCriterion("age is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeEqualTo(Integer value) {
+            addCriterion("age =", value, "age");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeNotEqualTo(Integer value) {
+            addCriterion("age <>", value, "age");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeGreaterThan(Integer value) {
+            addCriterion("age >", value, "age");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("age >=", value, "age");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeLessThan(Integer value) {
+            addCriterion("age <", value, "age");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeLessThanOrEqualTo(Integer value) {
+            addCriterion("age <=", value, "age");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeIn(List<Integer> values) {
+            addCriterion("age in", values, "age");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeNotIn(List<Integer> values) {
+            addCriterion("age not in", values, "age");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeBetween(Integer value1, Integer value2) {
+            addCriterion("age between", value1, value2, "age");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgeNotBetween(Integer value1, Integer value2) {
+            addCriterion("age not between", value1, value2, "age");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexIsNull() {
+            addCriterion("sex is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexIsNotNull() {
+            addCriterion("sex is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexEqualTo(Integer value) {
+            addCriterion("sex =", value, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexNotEqualTo(Integer value) {
+            addCriterion("sex <>", value, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexGreaterThan(Integer value) {
+            addCriterion("sex >", value, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sex >=", value, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexLessThan(Integer value) {
+            addCriterion("sex <", value, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexLessThanOrEqualTo(Integer value) {
+            addCriterion("sex <=", value, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexIn(List<Integer> values) {
+            addCriterion("sex in", values, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexNotIn(List<Integer> values) {
+            addCriterion("sex not in", values, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexBetween(Integer value1, Integer value2) {
+            addCriterion("sex between", value1, value2, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexNotBetween(Integer value1, Integer value2) {
+            addCriterion("sex not between", value1, value2, "sex");
+            return (Criteria) this;
+        }
+
         public Criteria andPassIsNull() {
             addCriterion("pass is null");
             return (Criteria) this;
@@ -711,6 +831,186 @@ public class TBallPlayerExample {
 
         public Criteria andTeamIdNotBetween(Long value1, Long value2) {
             addCriterion("team_id not between", value1, value2, "teamId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdIsNull() {
+            addCriterion("nation_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdIsNotNull() {
+            addCriterion("nation_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdEqualTo(Integer value) {
+            addCriterion("nation_id =", value, "nationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdNotEqualTo(Integer value) {
+            addCriterion("nation_id <>", value, "nationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdGreaterThan(Integer value) {
+            addCriterion("nation_id >", value, "nationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("nation_id >=", value, "nationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdLessThan(Integer value) {
+            addCriterion("nation_id <", value, "nationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdLessThanOrEqualTo(Integer value) {
+            addCriterion("nation_id <=", value, "nationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdIn(List<Integer> values) {
+            addCriterion("nation_id in", values, "nationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdNotIn(List<Integer> values) {
+            addCriterion("nation_id not in", values, "nationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdBetween(Integer value1, Integer value2) {
+            addCriterion("nation_id between", value1, value2, "nationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNationIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("nation_id not between", value1, value2, "nationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaIsNull() {
+            addCriterion("ca is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaIsNotNull() {
+            addCriterion("ca is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaEqualTo(Integer value) {
+            addCriterion("ca =", value, "ca");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaNotEqualTo(Integer value) {
+            addCriterion("ca <>", value, "ca");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaGreaterThan(Integer value) {
+            addCriterion("ca >", value, "ca");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ca >=", value, "ca");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaLessThan(Integer value) {
+            addCriterion("ca <", value, "ca");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaLessThanOrEqualTo(Integer value) {
+            addCriterion("ca <=", value, "ca");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaIn(List<Integer> values) {
+            addCriterion("ca in", values, "ca");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaNotIn(List<Integer> values) {
+            addCriterion("ca not in", values, "ca");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaBetween(Integer value1, Integer value2) {
+            addCriterion("ca between", value1, value2, "ca");
+            return (Criteria) this;
+        }
+
+        public Criteria andCaNotBetween(Integer value1, Integer value2) {
+            addCriterion("ca not between", value1, value2, "ca");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaIsNull() {
+            addCriterion("pa is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaIsNotNull() {
+            addCriterion("pa is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaEqualTo(Integer value) {
+            addCriterion("pa =", value, "pa");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaNotEqualTo(Integer value) {
+            addCriterion("pa <>", value, "pa");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaGreaterThan(Integer value) {
+            addCriterion("pa >", value, "pa");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaGreaterThanOrEqualTo(Integer value) {
+            addCriterion("pa >=", value, "pa");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaLessThan(Integer value) {
+            addCriterion("pa <", value, "pa");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaLessThanOrEqualTo(Integer value) {
+            addCriterion("pa <=", value, "pa");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaIn(List<Integer> values) {
+            addCriterion("pa in", values, "pa");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaNotIn(List<Integer> values) {
+            addCriterion("pa not in", values, "pa");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaBetween(Integer value1, Integer value2) {
+            addCriterion("pa between", value1, value2, "pa");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaNotBetween(Integer value1, Integer value2) {
+            addCriterion("pa not between", value1, value2, "pa");
             return (Criteria) this;
         }
     }

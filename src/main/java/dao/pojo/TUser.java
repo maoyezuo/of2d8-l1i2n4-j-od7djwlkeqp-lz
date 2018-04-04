@@ -15,6 +15,8 @@ public class TUser {
 
     private Boolean isLogin;
 
+    private String idname;
+
     public Long getId() {
         return id;
     }
@@ -69,5 +71,13 @@ public class TUser {
 
     public void setIsLogin(Boolean isLogin) {
         this.isLogin = isLogin;
+    }
+
+    public String getIdname() {
+        return idname;
+    }
+
+    public void setIdname(String idname) {
+        this.idname = idname == null ? null : idname.trim();
     }
 }

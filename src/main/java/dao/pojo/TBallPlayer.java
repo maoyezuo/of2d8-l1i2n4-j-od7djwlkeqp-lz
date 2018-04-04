@@ -7,6 +7,10 @@ public class TBallPlayer {
 
     private Integer price;
 
+    private Integer age;
+
+    private Integer sex;
+
     private Integer pass;
 
     private Integer trapping;
@@ -20,6 +24,12 @@ public class TBallPlayer {
     private Long clubId;
 
     private Long teamId;
+
+    private Integer nationId;
+
+    private Integer ca;
+
+    private Integer pa;
 
     public Long getId() {
         return id;
@@ -43,6 +53,22 @@ public class TBallPlayer {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
     }
 
     public Integer getPass() {
@@ -99,5 +125,29 @@ public class TBallPlayer {
 
     public void setTeamId(Long teamId) {
         this.teamId = teamId;
+    }
+
+    public Integer getNationId() {
+        return nationId;
+    }
+
+    public void setNationId(Integer nationId) {
+        this.nationId = nationId;
+    }
+
+    public Integer getCa() {
+        return ca;
+    }
+
+    public void setCa(Integer ca) {
+        this.ca = ca;
+    }
+
+    public Integer getPa() {
+        return pa;
+    }
+
+    public void setPa(Integer pa) {
+        this.pa = pa;
     }
 }

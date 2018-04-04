@@ -1,39 +1,27 @@
 package user.info;
 
+import java.util.List;
+
 import ball.info.ClubInfo;
+import ball.player.PlayerInfo;
+import dao.pojo.TUser;
+import io.netty.channel.Channel;
+import user.login.Login;
 
 public class User {
-	private long id;
-	private int serverId;
-	private String nickname;
-	private String uuid;
-	private String password;
-	private long money;
 	private ClubInfo club;
 	private boolean isLogin;
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getUuid() {
-		return uuid;
-	}
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public long getMoney() {
-		return money;
-	}
-	public void setMoney(long money) {
-		this.money = money;
+	private TUser tUser;
+	private Channel channel;
+	private long lastHeartTime;
+	private List<PlayerInfo> favoritePlayersList;
+	
+	public void offline() {
+		if(null != channel) {
+			channel.close();
+			channel = null;
+		}
+		Login.removeByUuid(getUuid());
 	}
 	
 	public ClubInfo getClub() {
@@ -48,19 +36,33 @@ public class User {
 	public void setLogin(boolean isLogin) {
 		this.isLogin = isLogin;
 	}
-	public String getNickname() {
-		return nickname;
+	public TUser gettUser() {
+		return tUser;
 	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void settUser(TUser tUser) {
+		this.tUser = tUser;
 	}
-	public int getServerId() {
-		return serverId;
+	public String getUuid() {
+		return tUser.getUuid();
 	}
-	public void setServerId(int serverId) {
-		this.serverId = serverId;
+	public Channel getChannel() {
+		return channel;
 	}
-	
+	public void setChannel(Channel channel) {
+		this.channel = channel;
+	}
+	public List<PlayerInfo> getFavoritePlayersList() {
+		return favoritePlayersList;
+	}
+	public void setFavoritePlayersList(List<PlayerInfo> favoritePlayersList) {
+		this.favoritePlayersList = favoritePlayersList;
+	}
+	public long getLastHeartTime() {
+		return lastHeartTime;
+	}
+	public void setLastHeartTime(long lastHeartTime) {
+		this.lastHeartTime = lastHeartTime;
+	}
 	
 	
 	

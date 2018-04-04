@@ -13,6 +13,12 @@ public class TBallClub {
 
     private Integer league;
 
+    private Boolean levelteam0;
+
+    private Boolean levelteam21;
+
+    private Boolean levelteam18;
+
     public Long getId() {
         return id;
     }
@@ -59,5 +65,29 @@ public class TBallClub {
 
     public void setLeague(Integer league) {
         this.league = league;
+    }
+
+    public Boolean getLevelteam0() {
+        return levelteam0;
+    }
+
+    public void setLevelteam0(Boolean levelteam0) {
+        this.levelteam0 = levelteam0;
+    }
+
+    public Boolean getLevelteam21() {
+        return levelteam21;
+    }
+
+    public void setLevelteam21(Boolean levelteam21) {
+        this.levelteam21 = levelteam21;
+    }
+
+    public Boolean getLevelteam18() {
+        return levelteam18;
+    }
+
+    public void setLevelteam18(Boolean levelteam18) {
+        this.levelteam18 = levelteam18;
     }
 }

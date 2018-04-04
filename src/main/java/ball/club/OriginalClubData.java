@@ -3,11 +3,12 @@ package ball.club;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import ball.info.ClubInfo;
 
 public class OriginalClubData {
-	private static Map<Long, ClubInfo> clubMap = new HashMap<Long, ClubInfo>();
+	private static Map<Long, ClubInfo> clubMap = new ConcurrentHashMap<Long, ClubInfo>();
 	public static synchronized void add(ClubInfo clubInfo) {
 		clubMap.put(clubInfo.getId(), clubInfo);
 	}

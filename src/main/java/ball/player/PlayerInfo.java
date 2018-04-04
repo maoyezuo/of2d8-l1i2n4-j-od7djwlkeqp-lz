@@ -3,6 +3,8 @@ package ball.player;
 public class PlayerInfo {
 	private long id;
 	private String name="";
+	private int age;
+	private int sex;
 	private int pass;
 	private int trapping;
 	private int shoot;
@@ -11,16 +13,17 @@ public class PlayerInfo {
 	private PositionStadium position;
 	private long clubId;
 	private long teamId;
+	private int nationId;
 	
 	public PlayerInfo() {
 	}
-	public PlayerInfo(long id, int pass, int trapping, int shoot, int sense) {
-		super();
+	public PlayerInfo(long id, int pass, int trapping, int shoot, int sense, int age) {
 		this.id = id;
 		this.pass = pass;
 		this.trapping = trapping;
 		this.shoot = shoot;
 		this.sense = sense;
+		this.age = age;
 	}
 
 	public long getId() {
@@ -86,6 +89,24 @@ public class PlayerInfo {
 	}
 	public void setTeamId(long teamId) {
 		this.teamId = teamId;
+	}
+	public int getNationId() {
+		return nationId;
+	}
+	public void setNationId(int nationId) {
+		this.nationId = nationId;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public int getSex() {
+		return sex;
+	}
+	public void setSex(int sex) {
+		this.sex = sex;
 	}
 	
 }

@@ -1,5 +1,7 @@
 package ball.player;
 
+import tools.RandomTool;
+
 public enum PositionStadium {
 	 /***/
 	  GK
@@ -52,4 +54,9 @@ public enum PositionStadium {
 	  
 	  
 	  ;
+	
+	public static int randomPosition() {
+		return RandomTool.random.nextInt(PositionStadium.values().length);
+	}
+	
 }

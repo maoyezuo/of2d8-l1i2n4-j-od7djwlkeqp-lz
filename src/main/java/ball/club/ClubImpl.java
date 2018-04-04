@@ -66,7 +66,7 @@ public class ClubImpl {
 			return;
 		}
 		user.setClub(Clone.clone(OriginalClubData.get(selectid)));
-		LeagueImpl.getInstance().addUser(user.getServerId(), user.getUuid());
+//		LeagueImpl.getInstance().addUser(user.gettUser(), user.getUuid());
 	}
 	
 }

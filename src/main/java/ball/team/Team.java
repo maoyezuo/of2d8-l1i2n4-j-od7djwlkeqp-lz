@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 import ball.player.PlayerInfo;
 
 public class Team {
+	private int id;
 	
 	private Map<Long, PlayerInfo> playerMap = new HashMap<Long, PlayerInfo>();
 	
@@ -26,6 +27,13 @@ public class Team {
 		    total += entry.getValue().simpleFightCapacity();
 		}
 		return total;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

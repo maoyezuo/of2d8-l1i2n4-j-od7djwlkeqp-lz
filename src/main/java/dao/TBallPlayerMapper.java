@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface TBallPlayerMapper {
-    int countByExample(TBallPlayerExample example);
+    long countByExample(TBallPlayerExample example);
 
     int deleteByExample(TBallPlayerExample example);
 

@@ -3,10 +3,6 @@
  */
 package netty.test2;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
-import message.MessageId;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,6 +12,9 @@ import java.net.UnknownHostException;
 
 import com.alibaba.fastjson.JSONObject;
 
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import message.MessageId;
 import netty.ToString;
 
 /**
@@ -71,7 +70,7 @@ public class Client implements Runnable{
 	private void sends(PrintStream out) throws IOException {
 		String s = "";
 		JSONObject json = new JSONObject();
-		json.put("msgid", MessageId.login );
+		json.put("msgid", MessageId.LOGIN_REQUEST );
 		json.put("msg", "日日日日日日");
 		json.put("numc", numc);
 		

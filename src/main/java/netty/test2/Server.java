@@ -12,6 +12,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 import netty.ToString;
 
 /**
@@ -38,7 +40,9 @@ public class Server {
                  public void initChannel(SocketChannel ch) throws Exception {
 //                     ch.pipeline().addLast(new Decoder2(1024,0,4));
 //                	 ch.pipeline().addLast(workerGroup,"codec", new WebSocketServerProtocolHandler("ws"));
-                	 ch.pipeline().addLast(workerGroup,"codec",new DecoderByLengthFieldBasedFrameDecoder(1024*1024, 4, 4, 4, 8)); 
+                	 ch.pipeline().addLast(workerGroup,"codec",new DecoderByLengthFieldBasedFrameDecoder(1024*1024, 4, 4, 4, 8));
+                	 ch.pipeline().addLast(workerGroup,"decoder", new StringDecoder());
+                	 ch.pipeline().addLast(workerGroup,"encoder", new StringEncoder());
                 	 ch.pipeline().addLast(workerGroup,"handle", new MyBusinessLogicHandler());
                  }
              })
@@ -53,7 +57,7 @@ public class Server {
 //            f.addListener(genericFutureListener);
 //            genericFutureListener.operationComplete(future);
             
-            System.out.println("---- [netty start]");
+            System.out.println("---- [netty start] "+port);
             
             // Wait until the server socket is closed.
             // In this example, this does not happen, but you can do that to gracefully
